@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+          <div class="card card-register">
+              <h3 class="title">Nueva imagen</h3>
+              <form class="register-form" (ngSubmit) ="submit()" #imageForm="ngForm">
+                  <label>Título</label>
+                  <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                   <input type="text" name="title" class="form-control" placeholder="Título" (focus)="focus=true" (blur)="focus=false" [(ngModel)] ="image.title" #title="ngModel" required>
+                </div>
+                  <label>URL</label>
+                  <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                    <input type="text" name="link" class="form-control" placeholder="URL" (focus)="focus1=true" (blur)="focus1=false" [(ngModel)] ="image.link" #url="ngModel" required>
+                  </div>
+                  <label>Descripción</label>
+                  <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                    <input type="text" name="description" class="form-control" placeholder="Descripción" (focus)="focus2=true" (blur)="focus2=false" [(ngModel)] ="image.description" #description="ngModel" required>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-round acc-color" [disabled] ="!imageForm.form.valid">Añadir</button>
+                  <div *ngIf="uploadFail" class="form-control-feedback">Error al añadir la imagen</div>
+              </form>
+          </div>
+        </div>
+    </div>
+</div>

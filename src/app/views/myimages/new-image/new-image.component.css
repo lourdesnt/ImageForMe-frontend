@@ -1,0 +1,24 @@
+.card {
+    background-color: #f8f9fa;
+}
+
+.form-control-feedback{
+    color: #d9534f;
+}
+
+.title {
+    color: black;
+}
+
+label {
+    color: black;
+}
+
+.acc-color {
+    border: none !important;
+}
+
+.acc-color:hover {
+    background-color: azure !important;
+    color: #292b2c !important;
+}

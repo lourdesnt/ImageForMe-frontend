@@ -1,0 +1,40 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/login-wallpaper.jpg');">
+        <div class="filter"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                      <div class="card card-register">
+                          <img src="assets/img/logo.png">
+                          <h3 class="title">Iniciar sesión</h3>
+                          <form class="register-form" (ngSubmit) ="submit()" #userForm="ngForm">
+                              <label>Usuario</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-single-02"></i>
+                                  </span>
+                                </div>
+                                <input type="text" name="username" class="form-control" placeholder="Usuario" (focus)="focus=true" (blur)="focus=false" [(ngModel)] ="user.username" #username="ngModel" required maxlength="20">
+                            </div>
+                              <label>Contraseña</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-key-25"></i>
+                                  </span>
+                                </div>
+                                  <input type="password" name="password" class="form-control" placeholder="Contraseña" (focus)="focus1=true" (blur)="focus1=false" [(ngModel)] ="user.password" #password="ngModel" required minlength="6">
+                              </div>
+                              <div *ngIf="loginFail" class="form-control-feedback">Error al iniciar sesión</div>
+                              <button type="submit" class="btn btn-info btn-block btn-round" [disabled] ="!userForm.form.valid">Iniciar sesión</button>
+                          </form>
+                          <div class="forgot">
+                              <a href="/register" routerLink="/register" class="btn btn-link btn-info">¿No tienes cuenta? ¡Crea una!</a>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

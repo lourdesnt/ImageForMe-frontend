@@ -1,0 +1,26 @@
+#content {
+    padding-top: 80px;
+}
+
+h3 {
+    padding: 20px;
+}
+
+h5 {
+    color: #274C77;
+}
+
+img{
+    padding: 20px;
+    width: 250px;
+}
+
+.acc-color {
+    border: none !important;
+}
+
+.acc-color:hover {
+    background-color: azure !important;
+    color: #292b2c !important;
+}
+

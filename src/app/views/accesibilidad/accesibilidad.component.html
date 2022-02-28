@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div class="container" id="content">
+    <h3 class="text-center"><b>Accesibilidad en nuestra web</b></h3>
+    <div class="row">
+        <p><i><b>Image For Me</b></i> se ha comprometido a hacer accesible su sitio web, de conformidad con el Real Decreto 1112/2018, de 7 de septiembre, sobre accesibilidad de los sitios web y aplicaciones para dispositivos móviles.</p>
+    </div>
+    <div class="row py-2">
+        <a href="https://www.w3.org/WAI/standards-guidelines/es" style="justify-content: center;">https://www.w3.org/WAI/standards-guidelines/es</a>
+    </div>
+    <div class="row py-3">
+        <h5>Opciones de Accesibilidad:</h5>
+    </div>
+    <div class="row" id="acc-options">
+        <div class="col-sm-12 col-md-6 col-lg-6" style="text-align: center;">
+            <img src="assets/img/accessibility-text.png" alt="Cambio de tamaño de letra del sitio web">
+            <button class="btn btn-block btn-info acc-color" (click)="changeAccTextSize()">Aplicar aumento de tamaño de letra</button>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6" style="text-align: center;">
+            <img src="assets/img/accessibility-colors.png" alt="Cambio de colores del sitio web">
+            <button class="btn btn-block btn-info acc-color" (click)="changeAccColor()">Aplicar cambio de colores</button>
+        </div>
+    </div>
+</div>

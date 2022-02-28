@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="container" id="content">
+    <h3><b>Tu perfil</b></h3>
+    <div class="col-md-5" style="display: inline-block;">
+        <form class="register-form" (ngSubmit) ="submit()" #userForm="ngForm">
+            <div class="form-group py-3">
+                <label>Username</label>
+                <input id="username" type="text" class="form-control" placeholder="Username" value="{{actualUser.username}}" name="username" [(ngModel)]="editedUser.username"
+                #username="ngModel" required maxlength="20" readonly>
+                <br>
+                <label>Email</label>
+                <input id="email" type="text" class="form-control" placeholder="Email" value="{{actualUser.email}}" name="email" [(ngModel)]="editedUser.email"
+                #email="ngModel" required maxlength="50">
+                <div *ngIf="email.invalid && email.dirty" class="alert">
+                    <div *ngIf="email.errors?.required">Campo requerido</div>
+                </div>
+                <br>
+                <label>Contraseña</label>
+                <input id="password" type="password" class="form-control" placeholder="Contraseña" value="{{actualUser.password}}" name="password" [(ngModel)]="editedUser.password"
+                #password="ngModel" required minlength="6">
+                <div *ngIf="password.invalid && password.dirty" class="alert">
+                    <div *ngIf="password.errors?.required">Campo requerido</div>
+                    <div *ngIf="password.errors?.minlength">Mínimo 6 carácteres</div>
+                </div>
+                <br>
+                <div class="row">
+                    <button type="submit" class="btn btn-block acc-color" [disabled] ="!userForm.form.valid">Editar</button>
+                    <div *ngIf="editOk" class="form-control-feedback-ok">¡Datos editados correctamente!</div>
+                    <div *ngIf="updateFail" class="form-control-feedback">Error al editar los datos</div>
+                </div>
+                <br>
+                <div class="row">
+                    <a class="btn btn-link btn-danger" (click)="open()">Quiero eliminar mi cuenta</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3 p-2 ml-5" style="display: inline-block;">
+        <img src="assets/img/profile.png" style="margin-bottom: 140%;margin-left: 80%; width: 150%">
+    </div>
+</div>

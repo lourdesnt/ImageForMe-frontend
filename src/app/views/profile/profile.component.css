@@ -1,0 +1,30 @@
+#content {
+    padding-top: 80px;
+}
+
+h3 {
+    padding: 20px;
+}
+
+.alert{
+    color: #d9534f;
+    margin: 0%;
+    padding: 0%;
+}
+
+.form-control-feedback{
+    color: #d9534f;
+}
+
+.form-control-feedback-ok{
+    color: #5cb85c;
+}
+
+.acc-color {
+    border: none !important;
+}
+
+.acc-color:hover {
+    background-color: azure !important;
+    color: #292b2c !important;
+}

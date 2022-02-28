@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="container" id="content">
+    <h3 class="text-center"><b>¡Aquí puedes encontrar las imágenes de Flickr que necesites!</b></h3>
+    <div class="form-group">
+        <input type="search" class="form-control" (keyup)="search($event)" placeholder="Buscar imágenes">
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 p-3">
+            <button type="submit" class="btn btn-block btn-round acc-color" id="flowers" (click)="searchCategory($event, 'flowers')" style="display: inline-block;">flowers</button>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 p-3">
+            <button type="submit" class="btn btn-block btn-round acc-color" id="cars" (click)="searchCategory($event, 'cars')" style="display: inline-block;">cars</button>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 p-3">
+            <button type="submit" class="btn btn-block btn-round acc-color" id="sky" (click)="searchCategory($event, 'sky')" style="display: inline-block;">sky</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let image of images | paginate: { itemsPerPage: 12, currentPage: page }">
+            <div class="card">
+                <a href="{{image.url}}">
+                    <img src="{{image.url}}" title="{{image.title}}" alt="{{image.title}}">
+                </a>
+                <button (click)="image.favorite = false" *ngIf="image.favorite; else elseFav" class="btn btn-danger btn-block"><i class="nc-icon nc-favourite-28"></i> Quitar favorito</button>
+
+			    <ng-template #elseFav>
+				    <button (click)="image.favorite = true" class="btn btn-outline-danger btn-block"><i class="nc-icon nc-favourite-28"></i> Favorito</button>
+			    </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="images.length > 0">
+        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+</div>

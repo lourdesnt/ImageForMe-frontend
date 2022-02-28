@@ -1,0 +1,16 @@
+#content {
+    padding-top: 80px;
+}
+
+h3 {
+    padding: 20px;
+}
+
+.acc-color {
+    border: none !important;
+}
+
+.acc-color:hover {
+    background-color: azure !important;
+    color: #292b2c !important;
+}

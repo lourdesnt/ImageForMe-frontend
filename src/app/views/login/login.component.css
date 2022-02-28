@@ -1,0 +1,16 @@
+.card {
+    background-color: #274C77;
+}
+
+.title {
+    color: #5bc0de;
+}
+
+.form-control-feedback{
+    color: #d9534f;
+}
+
+img {
+    width: 70%;
+    align-self: center;
+}

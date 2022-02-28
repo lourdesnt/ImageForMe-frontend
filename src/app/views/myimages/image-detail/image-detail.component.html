@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+          <div class="card card-register">
+              <h3 class="title">Editar imagen</h3>
+              <form class="register-form" (ngSubmit) ="submit()" #imageDetailForm="ngForm">
+                  <div class="row">
+                      <img src={{actualImage.link}} class="img-thumbnail" alt="{{actualImage.description}}">
+                  </div>
+                  <label>Título</label>
+                  <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                   <input type="text" name="title" class="form-control" value="{{actualImage.title}}" placeholder="Título" (focus)="focus=true" (blur)="focus=false" [(ngModel)] ="editedImage.title" #title="ngModel" required>
+                </div>
+                  <label>Descripción</label>
+                  <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                    <input type="text" name="description" value="{{actualImage.description}}" class="form-control" placeholder="Descripción" (focus)="focus1=true" (blur)="focus1=false" [(ngModel)] ="editedImage.description" #description="ngModel" required>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-round acc-color" [disabled] ="!imageDetailForm.form.valid">Guardar cambios</button>
+                  <div *ngIf="editFail" class="form-control-feedback">Error al modificar la imagen</div>
+              </form>
+          </div>
+        </div>
+    </div>
+</div>

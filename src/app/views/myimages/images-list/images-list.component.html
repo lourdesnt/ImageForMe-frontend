@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="container" id="content">
+    <h3 class="text-center"><b>¡Aquí puedes encontrar tus imágenes!</b></h3>
+    <div class="row p-3 justify-content-center">
+        <button type="button" class="btn acc-color" routerLink="/images/upload">Nueva imagen</button>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let image of images | paginate: { itemsPerPage: 12, currentPage: page }; index as i">
+            <div class="card">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                  <img src={{image.link}} class="img-fluid" alt="{{image.description}}"/>
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{image.title}}</h5>
+                  <p class="card-text">{{image.description}}</p>
+                  <button type="button" [routerLink]="['/images', images[i].id]" routerLink="/images/{{images[i].id}}" class="btn btn-warning">Editar</button>
+                  <button type="button" class="btn btn-danger" (click)="open(images[i].id)">Eliminar</button>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="images.length > 0">
+        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+</div>
