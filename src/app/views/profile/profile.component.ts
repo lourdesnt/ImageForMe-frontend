@@ -76,8 +76,8 @@ export class ProfileComponent implements OnInit {
     console.log(this.editedUser);
     this.userService.update(this.actualUsername, this.editedUser).subscribe(
       (data) => {
-        this.actualUsername = this.editedUser.username
-        localStorage.setItem('username', this.editedUser.username);
+        //this.actualUsername = this.editedUser.username
+        //localStorage.setItem('username', this.editedUser.username);
         this.editOk = true;
         this.updateFail = false;
       },
